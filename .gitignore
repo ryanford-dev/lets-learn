@@ -1,0 +1,4 @@
+.tup/
+dist/
+utils/
+src/assets/img/*.svg

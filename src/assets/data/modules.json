@@ -1,0 +1,18 @@
+{
+	"lessons": [
+		{ "name": "spelling", "href": "/lessons/spelling" },
+		{ "name": "typing", "href": "/lessons/typing" },
+		{ "name": "money", "href": "/lessons/money" },
+		{ "name": "telling time", "href": "/lessons/time" },
+		{ "name": "counting", "href": "/lessons/counting" },
+		{ "name": "alphabet", "href": "/lessons/alphabet" }
+	],
+	"games": [
+		{ "name": "drawing", "href": "/gamess/drawing" },
+		{ "name": "coloring", "href": "/gamess/coloring" },
+		{ "name": "match game", "href": "/gamess/match-game" },
+		{ "name": "fruit game", "href": "/gamess/fruit-game" },
+		{ "name": "jigsaw puzzles", "href": "/gamess/jigsaw-puzzle" },
+		{ "name": "connect the dots", "href": "/gamess/connect-the-dots" }
+	]
+}

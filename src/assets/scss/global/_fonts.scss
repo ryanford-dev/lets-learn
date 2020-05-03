@@ -1,0 +1,18 @@
+$regular-font: "indieflower", Helvetic, Arial, sans-serif;
+$heading-font: "comic_zine_otregular";
+
+@font-face {
+	font-family: "comic_zine_otregular";
+	src: url("../fonts/comic_zine_ot-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: "indieflower";
+	src: url("../fonts/IndieFlower-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+

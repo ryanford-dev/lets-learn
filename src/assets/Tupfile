@@ -1,0 +1,13 @@
+include_rules
+DIST = $(DIST)/assets
+# data files
+: foreach data/*.json |> !copy |> $(DIST)/%f
+# fonts
+: foreach fonts/*.woff |> !copy |> $(DIST)/%f
+: foreach fonts/*.txt |> !copy |> $(DIST)/%f
+# images -> using lua file in img/
+# js
+: foreach js/main.mjs js/components/*.js js/emojis/*.js js/scenes/*.js |> ^ minifying %f^ jsmin <%f >%o |> $(DIST)/%f
+: foreach js/vendor/*.js |> !copy |> $(DIST)/%f
+# scss
+: foreach scss/main.scss | scss/_*.scss scss/global/*.scss |> ^ compiling %f^ sassc -l -m "inline" %f %o |> $(DIST)/css/%B.css | $(DIST)/css/%B.css.map

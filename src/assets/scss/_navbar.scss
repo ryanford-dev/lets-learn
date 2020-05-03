@@ -1,0 +1,80 @@
+header {
+	width: 100%;
+	height: 3rem;
+	z-index: 2;
+
+	@at-root .top-container {
+		width: 100%;
+		height: 3rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		line-height: 3rem;
+	}
+
+	@at-root .top-links {
+		height: 100%;
+		background-color: $background-color;
+
+		@at-root .top-toggle {
+			display: inline-block;
+			padding: 0 0.625rem;
+			width: 100%;
+			height: 3rem;
+			cursor: pointer;
+			background-color: inherit;
+			border: 0;
+			text-align: right;
+			font-weight: 700;
+			color: $accent-color;
+
+			&:hover, &:focus {
+				color: $primary-color;
+			}
+		}
+	}
+
+	@at-root .branding {
+		padding: 0 0.625rem;
+		color: $foreground-color;
+		font-family: $heading-font;
+		font-weight: 100;
+		font-size: 2.5rem;
+	}
+
+	@at-root .top-items {
+		transform: translate(0, -100%);
+		z-index: -1;
+		transition: transform 0.25s, opacity 0.125s;
+		padding: 0;
+		opacity: 0;
+		background-color: $secondary-color;
+
+		&.active, &:focus-within {
+			transform: translate(0);
+			opacity: 1;
+		}
+
+		& > li {
+			cursor: pointer;
+
+			& a {
+				height: 100%;
+				width: 100%;
+				padding: 0 0.9375rem;
+				display: inline-block;
+				color: $background-color;
+			}
+
+
+
+			&:hover, &:focus {
+				background-color: $primary-color;
+
+				a {
+				color: $background-color;
+			}
+			}
+		}
+	}
+}

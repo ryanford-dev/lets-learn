@@ -1,0 +1,34 @@
+import { h } from "/assets/js/vendor/hyperapp.js";
+import rough from "/assets/js/vendor/rough.js";
+import uuid from "/assets/js/vendor/uuid.js";
+
+export default (props = {}) => {
+	let proto;
+	const new_props = {
+		...props,
+		key: props.key || uuid(),
+		xmlns: "http://www.w3.org/2000/svg",
+		viewBox: "-1 -1 37 37",
+		width: (props.size || 1) * 16,
+		height: (props.size || 1) * 16,
+		oncreate: el => {
+			const svg = rough.svg(el, {
+				options: props.options || {
+					roughness: 0.1,
+					strokeWidth: 0.2,
+					fillStyle: "solid",
+				}
+			});
+
+			if (proto) {
+				el.parentNode.replaceChild(proto.cloneNode(true), el);
+			} else {
+				el.appendChild(svg["path"]("M36 32c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V4c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v28z", {["fill"]: "#3B88C3",["d"]: "M36 32c0 2.209-1.791 4-4 4H4c-2.209 0-4-1.791-4-4V4c0-2.209 1.791-4 4-4h28c2.209 0 4 1.791 4 4v28z",}));el.appendChild(svg["path"]("M21 11c0 3.314-2.687 6-6 6-3.314 0-6-2.686-6-6s2.686-6 6-6c3.313 0 6 2.686 6 6zm10.999 2c0 2.761-2.239 5-5 5s-5-2.239-5-5 2.239-5 5-5 5 2.238 5 5z", {["fill"]: "#FFF",["d"]: "M21 11c0 3.314-2.687 6-6 6-3.314 0-6-2.686-6-6s2.686-6 6-6c3.313 0 6 2.686 6 6zm10.999 2c0 2.761-2.239 5-5 5s-5-2.239-5-5 2.239-5 5-5 5 2.238 5 5z",}));el.appendChild(svg["path"]("M30 20c0-2.209-1.791-4-4-4H15c-2.209 0-4 1.791-4 4l-6-4H4v13h1l6-4v2c0 2.209 1.791 4 4 4h11c2.209 0 4-1.791 4-4v-7z", {["fill"]: "#FFF",["d"]: "M30 20c0-2.209-1.791-4-4-4H15c-2.209 0-4 1.791-4 4l-6-4H4v13h1l6-4v2c0 2.209 1.791 4 4 4h11c2.209 0 4-1.791 4-4v-7z",}));
+				proto = el;
+			}
+		},
+	};
+	delete new_props.options;
+
+	return h("svg", new_props);
+};

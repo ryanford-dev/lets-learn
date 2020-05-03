@@ -1,0 +1,3 @@
+DIST = $(TUP_CWD)/dist
+SRC = $(TUP_CWD)/src
+!copy = |> ^ copy %f^ cp %f %o |>

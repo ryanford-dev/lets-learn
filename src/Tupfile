@@ -1,0 +1,2 @@
+include_rules
+: foreach *.html |> cp %f %o |> $(DIST)/%f
