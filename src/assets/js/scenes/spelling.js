@@ -533,7 +533,7 @@ const emoji = {
 const style = picostyle(h);
 
 const state = {
-	wordLength: 3,
+	wordLength: 4,
 };
 
 const actions = {
@@ -556,7 +556,11 @@ const actions = {
 		});
 
 		const structure = display({}, [
-			emoji[word]({ id: "word", size: 8, ["data-word"]: word }),
+			emoji[word]({
+				id: "word", size: 8,
+				["data-word"]: word,
+				onclick: () => window.speak(word),
+			}),
 			style("ul")({ margin: "2.5rem 0", display: "flex", "> li:not(:first-child)": { marginLeft: "0.625rem" } })({ id: "dropzone" }),
 			style("div")({ width: "100%", height: "100%", display: "flex", ["align-items"]: "center", ["justify-content"]: "center", position: "relative" })({ id: "dragzone" }),
 		]);
@@ -597,6 +601,12 @@ const actions = {
 				.reduce((str, node) => str += node.dataset.letter, "");
 			const word = document.getElementById("word").dataset.word;
 			if (solution && word && solution == word) {
+				[...solution].forEach((c,i) => setTimeout(window.speak, 250 * i, c));
+				{
+					const wait = (word.length + 1) * 250;
+					setTimeout(window.speak, wait, word);
+					setTimeout(window.speak,  wait + 1000, ["amazing", "wow", "great job"][Math.floor(Math.random() * 3)]);
+				}
 				document.getElementById("dragzone").innerHTML = "<h3>Great job!</h3>";
 				const dragzone = document.getElementById("dragzone");
 				const winScreen = (state, actions) => h("div", {
@@ -665,6 +675,7 @@ const letter_gen = (letter, props) => {
 			["data-letter"]: letterValue,
 			onmousedown: e => {
 				const svg = e.target.tagName.toLowerCase() == "svg" ? e.target : e.target.closest("svg");
+				window.speak(letterValue);
 				setTimeout(() => {
 					document.querySelectorAll(".letter").forEach(letter => { letter.style.zIndex = null; });
 					svg.style.zIndex = 1;
