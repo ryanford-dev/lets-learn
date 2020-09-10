@@ -2,6 +2,8 @@
 
 Educational Collection of Learning and Games Modules
 
+![Let's Learn Screenshot](https://raw.githubusercontent.com/ryanford-dev/lets-learn/master/screenshot.png)
+
 ---
 #### TODO:
 
