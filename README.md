@@ -2,6 +2,11 @@
 
 Educational Collection of Learning and Games Modules
 
+### Interestng Features
+- Generated sketchy styled emojis
+- Speech synth
+- Designed to accomodate API gateway and using API keys for module permissions
+
 ![Let's Learn Screenshot](https://raw.githubusercontent.com/ryanford-dev/lets-learn/master/screenshot.png)
 
 ---
